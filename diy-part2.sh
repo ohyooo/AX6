@@ -30,4 +30,4 @@ git clone --depth=1 https://github.com/kiddin9/luci-app-dnsfilter.git package/lu
 
 git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
-
+git clone --depth=1 -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
