@@ -21,12 +21,12 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 #git clone https://github.com/kiddin9/openwrt-packages.git package/openwrt-packages
 
-git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
+#git clone --depth=1 https://github.com/sirpdboy/luci-app-netdata.git package/luci-app-netdata
 
 #添加额外非必须软件包
 
 #添加smartdns
-git clone --depth=1 https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
+#git clone --depth=1 https://github.com/kiddin9/luci-app-dnsfilter.git package/luci-app-dnsfilter
 
-git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
-git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+#git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
+#git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
