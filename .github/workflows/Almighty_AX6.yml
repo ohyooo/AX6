@@ -41,6 +41,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
+    - name: Fork Sync
+      uses: tgymnich/fork-sync@v1.4
+      with:
+        owner: ohyooo
+        base: master
+        head: master
+
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
