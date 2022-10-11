@@ -63,9 +63,9 @@ jobs:
 
     - name: Patch git
       run: |
-	    mv revert_xiaomi_devices_patch.diff openwrt
+        mv revert_xiaomi_devices_patch.diff openwrt
         cd openwrt
-		git apply revert_xiaomi_devices_patch.diff
+        git apply revert_xiaomi_devices_patch.diff
 
     - name: Load custom feeds
       run: |
