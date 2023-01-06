@@ -31,3 +31,4 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 git clone --depth=1 https://github.com/pymumu/openwrt-smartdns package/smartdns
 git clone --depth=1 -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth=1 https://github.com/yichya/luci-app-xray package/luci-app-xray
