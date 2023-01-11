@@ -54,15 +54,15 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: Config git
-      run: git config user.name ohyooo && git config user.mail i@ohyooo.com
-
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+    - name: Config git
+      run: git config user.name ohyooo && git config user.mail i@ohyooo.com
 
     - name: Patch git
       run: |
