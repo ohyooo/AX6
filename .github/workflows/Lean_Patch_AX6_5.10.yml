@@ -65,6 +65,12 @@ jobs:
     - name: Config git
       run: git config user.name ohyooo && git config user.mail i@ohyooo.com
 
+    - name: Patch git
+      run: |
+        mv revert_xiaomi_devices_patch.diff openwrt
+        cd openwrt
+        git apply revert_xiaomi_devices_patch.diff
+
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
