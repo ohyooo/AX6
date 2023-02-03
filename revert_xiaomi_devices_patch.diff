@@ -3,6 +3,8 @@ From: csy <csy@lbx.dev>
 Date: Tue, 8 Nov 2022 08:58:51 +0800
 Subject: [PATCH] add XiaoMi
 
+# git apply revert_xiaomi_devices_patch.diff
+
 ---
  target/linux/ipq807x/image/generic.mk | 22 ++++++++++++++++++++++
  1 file changed, 22 insertions(+)
