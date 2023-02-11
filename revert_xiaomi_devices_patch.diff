@@ -3,6 +3,8 @@ From: i <i@ohyooo.com>
 Date: Sat, 11 Feb 2023 09:28:10 +0800
 Subject: [PATCH] add redmi ax6 back
 
+# git apply revert_xiaomi_devices_patch.diff
+
 ---
  target/linux/ipq807x/image/generic.mk | 22 ++++++++++++++++++++++
  1 file changed, 22 insertions(+)
