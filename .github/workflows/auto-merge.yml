@@ -1,0 +1,25 @@
+name: Dependabot Merge
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  dependabot-merge:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    steps:
+      - uses: peter-evans/find-comment@main
+        id: find-comment
+        with:
+          token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: '@dependabot squash and merge'
+      - uses: peter-evans/create-or-update-comment@main
+        with:
+          token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: '@dependabot squash and merge'
+          edit-mode: replace
