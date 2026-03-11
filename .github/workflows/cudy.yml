@@ -1,0 +1,30 @@
+name: Build Cudy ImmortalWrt
+
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.org/init_build_environment.sh)'
+
+      - name: Build firmware
+        shell: bash
+        run: |
+          bash ./build_cudy_immortalwrt.sh
+
+      - name: Upload bin artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: immortalwrt-bin
+          path: bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-cudy_tr3000-v1-squashfs-sysupgrade.bin
+          if-no-files-found: error
+

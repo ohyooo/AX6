@@ -1,0 +1,48 @@
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd00::/60'
+	option packet_steering '1'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth1'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '10.0.0.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	list dns '10.0.0.1'
+	list dns '119.29.29.29'
+	list dns '223.5.5.5'
+
+config interface 'wan'
+	option device 'eth0'
+	option proto 'pppoe'
+	option username '0000000'
+	option password '123456'
+	option ipv6 'auto'
+	option peerdns '0'
+	list dns '127.0.0.1'
+	list dns '119.29.29.29'
+	list dns '223.5.5.5'
+
+config interface 'wan6'
+	option device 'eth0'
+	option proto 'dhcpv6'
+	option reqaddress 'try'
+	option reqprefix 'auto'
+	option norelease '1'
+	option peerdns '0'
+	list dns '127.0.0.1'
+	list dns '119.29.29.29'
+	list dns '223.5.5.5'
+

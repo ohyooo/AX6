@@ -1,0 +1,9 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/usr/bin/AdGuardHome  --work-dir /etc/config/adg --config /etc/config/adg/AdGuardHome.yaml >/dev/null 2>&1 &
+/usr/bin/mosdns service start >/dev/null 2>&1
+
+for led in /sys/class/leds/*; do echo 0 > $led/brightness; done
+
+exit 0
