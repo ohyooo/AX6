@@ -41,8 +41,8 @@ if [ ! -d "$SRC_DIR/package/base-files" ]; then
     exit 1
 fi
 
-rm -rf "$SRC_DIR/packages/base-files"
-cp -r "$SRC_DIR/package/base-files" "$SRC_DIR/packages/base-files"
+#rm -rf "$SRC_DIR/packages/base-files"
+cp -r "base-files" "$SRC_DIR/packages"
 
 if git -C "$SRC_DIR" apply --check "../$PATCH_FILE" >/dev/null 2>&1; then
     git -C "$SRC_DIR" apply "../$PATCH_FILE"
