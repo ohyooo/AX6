@@ -60,6 +60,10 @@ NPROC="${NPROC:-$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)}"
     cd "$SRC_DIR"
     ./scripts/feeds update -a
     ./scripts/feeds install -a
-    make download -j8
-    make -j"$NPROC"
+    make download -j"$(nproc 2>/dev/null || getconf _NPROCESSORS_ONLN || echo 1)"
+    if [ "$NPROC" -eq "1" ]; then
+        make -j1 V=s
+    else
+        make -j"$NPROC"
+    fi
 )
