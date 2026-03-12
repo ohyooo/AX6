@@ -45,13 +45,13 @@ fi
 cp -r "base-files" "$SRC_DIR/packages"
 
 if git -C "$SRC_DIR" apply --check "../$PATCH_FILE" >/dev/null 2>&1; then
+    echo "Applying patch: $PATCH_FILE"
     git -C "$SRC_DIR" apply "../$PATCH_FILE"
+elif git -C "$SRC_DIR" apply -R --check "../$PATCH_FILE" >/dev/null 2>&1; then
+    echo "Patch already applied: $PATCH_FILE"
 else
-    echo "Patch may already be applied or has conflicts, trying patch(1) fallback"
-    patch -d "$SRC_DIR" -p1 < "$PATCH_FILE" || {
-        echo "Failed to apply patch: $PATCH_FILE" >&2
-        exit 1
-    }
+    echo "Patch has conflicts and cannot be applied cleanly: $PATCH_FILE" >&2
+    exit 1
 fi
 
 NPROC="${NPROC:-$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)}"
