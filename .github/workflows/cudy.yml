@@ -28,6 +28,14 @@ jobs:
         run: |
           bash ./build_cudy_immortalwrt.sh
 
+      - name: Build firmware
+        if: failure() && !cancelled()
+        env:
+          NPROC: 1
+        shell: bash
+        run: |
+          bash ./build_cudy_immortalwrt.sh
+
       - name: Upload bin artifacts
         uses: actions/upload-artifact@v4
         with:
