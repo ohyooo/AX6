@@ -54,7 +54,7 @@ else
     }
 fi
 
-NPROC="$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)"
+NPROC="${NPROC:-$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 1)}"
 
 (
     cd "$SRC_DIR"
