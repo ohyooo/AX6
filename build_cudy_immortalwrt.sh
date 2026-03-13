@@ -32,7 +32,7 @@ require_file "$PATCH_FILE"
 if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     
-    git reset --hard 1fede7f24aeedbf2641a5ad76e35e2346cdefd29 # ustream-ssl: update to Git HEAD (2026-03-01)
+    git reset --hard 150d05f8c69b7c9825e83f5600d76402cc7effc6 # airoha: fix EN7581 PCIe initialization and add x2 link support
 else
     echo "Using existing source tree: $SRC_DIR"
 fi
