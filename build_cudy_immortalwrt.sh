@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd "$SRC_DIR"
-      git reset --hard 37a1070b37b5da97a622e2d8a2d69fef73b9d641 # apk: add --force-reinstall option
+      git reset --hard 64b0742cd22816263776e6fbb183a402de93a03b
     )
 else
     echo "Using existing source tree: $SRC_DIR"
