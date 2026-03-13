@@ -8,6 +8,9 @@ SRC_DIR="immortalwrt"
 CONFIG_FILE="cudy.config"
 PATCH_FILE="cudy.patch"
 
+git reset --hard 37a1070b37b5da97a622e2d8a2d69fef73b9d641 # apk: add --force-reinstall option
+
+
 require_file() {
     if [ ! -f "$1" ]; then
         echo "Missing file: $1" >&2
