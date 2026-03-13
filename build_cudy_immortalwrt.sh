@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd "$SRC_DIR"
-      git reset --hard 64b0742cd22816263776e6fbb183a402de93a03b
+      git reset --hard 38a935ec6e37f2ea2c7772849e9f4481bbec0930
     )
 else
     echo "Using existing source tree: $SRC_DIR"
