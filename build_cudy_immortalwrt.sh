@@ -8,7 +8,7 @@ SRC_DIR="immortalwrt"
 CONFIG_FILE="cudy.config"
 PATCH_FILE="cudy.patch"
 
-git reset --hard 37a1070b37b5da97a622e2d8a2d69fef73b9d641 # apk: add --force-reinstall option
+git reset --hard 1fede7f24aeedbf2641a5ad76e35e2346cdefd29 # ustream-ssl: update to Git HEAD (2026-03-01)
 
 
 require_file() {
