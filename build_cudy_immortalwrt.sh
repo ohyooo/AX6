@@ -32,7 +32,7 @@ require_file "$PATCH_FILE"
 if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     
-    git reset --hard 445814147f808ca89938cf9eecbb73c82502abe3 # kernel: add cake_mq fixes
+    git reset --hard 37a1070b37b5da97a622e2d8a2d69fef73b9d641 # apk: add --force-reinstall option
 
 else
     echo "Using existing source tree: $SRC_DIR"
