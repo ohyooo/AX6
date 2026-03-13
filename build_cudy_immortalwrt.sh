@@ -8,7 +8,7 @@ SRC_DIR="immortalwrt"
 CONFIG_FILE="cudy.config"
 PATCH_FILE="cudy.patch"
 
-git reset --hard 4193feb489458fe6c82b23598ffea4912b43668a # kernel: bcma: fallback-sprom: check defered probe
+git reset --hard bbe3e58df01476a499ffcdc1098a418946d368b0 # ath79: disable build for fortinet fap-220-b by default
 
 
 require_file() {
