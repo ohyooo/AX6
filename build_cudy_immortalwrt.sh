@@ -32,7 +32,7 @@ require_file "$PATCH_FILE"
 if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     
-    git reset --hard bbe3e58df01476a499ffcdc1098a418946d368b0 # ath79: disable build for fortinet fap-220-b by default
+    git reset --hard 1fede7f24aeedbf2641a5ad76e35e2346cdefd29 # ustream-ssl: update to Git HEAD (2026-03-01)
 else
     echo "Using existing source tree: $SRC_DIR"
 fi
