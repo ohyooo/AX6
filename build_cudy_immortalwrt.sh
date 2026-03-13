@@ -8,7 +8,7 @@ SRC_DIR="immortalwrt"
 CONFIG_FILE="cudy.config"
 PATCH_FILE="cudy.patch"
 
-git reset --hard 1fede7f24aeedbf2641a5ad76e35e2346cdefd29 # ustream-ssl: update to Git HEAD (2026-03-01)
+git reset --hard 4193feb489458fe6c82b23598ffea4912b43668a # kernel: bcma: fallback-sprom: check defered probe
 
 
 require_file() {
