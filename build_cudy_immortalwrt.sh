@@ -32,7 +32,8 @@ require_file "$PATCH_FILE"
 if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     
-    git reset --hard ef8c235fe0d8ae8cde155282bd1995c78b5979f1 # ath79: rename tplink_rex5x-v1, deduplicate RE450-v2 config
+    git reset --hard 445814147f808ca89938cf9eecbb73c82502abe3 # kernel: add cake_mq fixes
+
 else
     echo "Using existing source tree: $SRC_DIR"
 fi
