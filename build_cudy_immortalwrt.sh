@@ -32,7 +32,7 @@ require_file "$PATCH_FILE"
 if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     
-    git reset --hard 150d05f8c69b7c9825e83f5600d76402cc7effc6 # airoha: fix EN7581 PCIe initialization and add x2 link support
+    git reset --hard ef8c235fe0d8ae8cde155282bd1995c78b5979f1 # ath79: rename tplink_rex5x-v1, deduplicate RE450-v2 config
 else
     echo "Using existing source tree: $SRC_DIR"
 fi
