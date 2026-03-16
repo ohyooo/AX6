@@ -36,7 +36,22 @@ jobs:
         run: |
           bash ./build_cudy_immortalwrt.sh
 
+      - name: Build firmware
+        run: |
+          ls -ahl .
+          ls -ahl bin || true
+          ls -ahl immortalwrt || true
+
       - name: Upload bin artifacts
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: immortalwrt-bin
+          path: bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-cudy_tr3000-v1-squashfs-sysupgrade.bin
+          if-no-files-found: error
+
+      - name: Upload bin artifacts
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: immortalwrt-bin
