@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard 1fede7f24aeedbf2641a5ad76e35e2346cdefd29 # ustream-ssl: update to Git HEAD (2026-03-01)
+      git reset --hard 38a935ec6e37f2ea2c7772849e9f4481bbec0930 # ipq806x: ap3935: fix uboot nvmem
     )
 else
     echo "Using existing source tree: $SRC_DIR"
