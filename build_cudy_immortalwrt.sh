@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard 445814147f808ca89938cf9eecbb73c82502abe3 # kernel: add cake_mq fixes
+      git reset --hard 4193feb489458fe6c82b23598ffea4912b43668a # kernel: bcma: fallback-sprom: check defered probe
     )
 else
     echo "Using existing source tree: $SRC_DIR"
