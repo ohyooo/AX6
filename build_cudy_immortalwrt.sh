@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard 568caba81fd53007606d58e834393012d80236ff # rtc-rv5c386a: fix build with kernel 6.12
+      git reset --hard 5103e0d2c267171bae868f28dc8f9a0011e885db # wifi-scripts: fix handling spaces in wifi client config
     )
 else
     echo "Using existing source tree: $SRC_DIR"
