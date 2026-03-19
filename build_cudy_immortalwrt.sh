@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard bbe3e58df01476a499ffcdc1098a418946d368b0 # ath79: disable build for fortinet fap-220-b by default
+      git reset --hard abc9103db7403bed641b22e1bae61dfffd3c6a4f # Merge Official Source
     )
 else
     echo "Using existing source tree: $SRC_DIR"
