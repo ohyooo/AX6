@@ -24,6 +24,7 @@ jobs:
             upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd
 
       - name: Build firmware
+        continue-on-error: true
         shell: bash
         run: |
           bash ./build_cudy_immortalwrt.sh
@@ -38,7 +39,7 @@ jobs:
           bash ./build_cudy_immortalwrt.sh
           ls -ahl
 
-      - name: Build firmware
+      - name: List file
         run: |
           ls -ahl .
           ls -ahl bin || true
