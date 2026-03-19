@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard abc9103db7403bed641b22e1bae61dfffd3c6a4f # Merge Official Source
+      git reset --hard d8de9b068bebd23b4df719d2bd4d990ec256d78d # procd: update to git HEAD
     )
 else
     echo "Using existing source tree: $SRC_DIR"
