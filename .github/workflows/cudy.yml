@@ -3,6 +3,10 @@ name: Build Cudy ImmortalWrt
 on:
   workflow_dispatch:
   push:
+
+env:
+  CCACHE_DIR: ${{ github.workspace }}/.ccache
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,6 +14,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            immortalwrt/dl
+            ${{ github.workspace }}/.ccache
+          key: ${{ runner.os }}-immortalwrt-${{ hashFiles(
+            'build_cudy_immortalwrt.sh',
+            '**/.config',
+            '**/feeds.conf',
+            '**/feeds.conf.default',
+            '**/*.patch'
+          ) }}
+          restore-keys: |
+            ${{ runner.os }}-immortalwrt-
 
       - name: Install dependencies
         run: |
@@ -23,20 +43,32 @@ jobs:
             python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
             upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd
 
+      - name: Setup ccache
+        run: |
+          mkdir -p "$CCACHE_DIR"
+          ccache -M 2G
+          ccache --set-config=compression=true
+          ccache --set-config=base_dir=${{ github.workspace }}
+          ccache -s || true
+
       - name: Build firmware
         continue-on-error: true
         shell: bash
         run: |
+          export PATH="/usr/lib/ccache:$PATH"
           bash ./build_cudy_immortalwrt.sh
+          ccache -s || true
           ls -ahl
 
-      - name: Build firmware
+      - name: Build firmware retry
         if: failure() && !cancelled()
         env:
           NPROC: 1
         shell: bash
         run: |
+          export PATH="/usr/lib/ccache:$PATH"
           bash ./build_cudy_immortalwrt.sh
+          ccache -s || true
           ls -ahl
 
       - name: List file
@@ -44,6 +76,7 @@ jobs:
           ls -ahl .
           ls -ahl bin || true
           ls -ahl immortalwrt || true
+          ls -ahl immortalwrt/bin/targets/mediatek/filogic || true
 
       - name: Upload bin artifacts
         continue-on-error: true
@@ -53,11 +86,10 @@ jobs:
           path: immortalwrt/bin
           if-no-files-found: error
 
-      - name: Upload bin artifacts
+      - name: Upload sysupgrade bin
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
-          name: immortalwrt-bin
+          name: immortalwrt-sysupgrade-bin
           path: immortalwrt/bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-cudy_tr3000-v1-squashfs-sysupgrade.bin
           if-no-files-found: error
-
