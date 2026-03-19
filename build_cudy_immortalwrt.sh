@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard 4193feb489458fe6c82b23598ffea4912b43668a # kernel: bcma: fallback-sprom: check defered probe
+      git reset --hard 64b0742cd22816263776e6fbb183a402de93a03b # ramips: disable build for genexis pulse-ex400 by default
     )
 else
     echo "Using existing source tree: $SRC_DIR"
