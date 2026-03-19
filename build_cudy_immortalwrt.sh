@@ -33,7 +33,7 @@ if [ ! -d "$SRC_DIR/.git" ]; then
     git clone "$REPO_URL" -b "$BRANCH" "$SRC_DIR"
     (
       cd $SRC_DIR
-      git reset --hard d8de9b068bebd23b4df719d2bd4d990ec256d78d # procd: update to git HEAD
+      git reset --hard 62d8101e09042f15c4770d59fdda1d16158a511a # tools/expat: fix PKG_CPE_ID
     )
 else
     echo "Using existing source tree: $SRC_DIR"
