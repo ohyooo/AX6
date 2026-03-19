@@ -27,7 +27,7 @@ jobs:
             '**/feeds.conf',
             '**/feeds.conf.default',
             '**/*.patch'
-          ) }}
+            ) }}
           restore-keys: |
             ${{ runner.os }}-immortalwrt-
 
