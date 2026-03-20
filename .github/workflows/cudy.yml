@@ -52,6 +52,7 @@ jobs:
           ccache -s || true
 
       - name: Build firmware
+        if: failure() && !cancelled()
         continue-on-error: true
         shell: bash
         run: |
@@ -61,7 +62,6 @@ jobs:
           ls -ahl
 
       - name: Build firmware retry
-        if: failure() && !cancelled()
         env:
           NPROC: 1
         shell: bash
